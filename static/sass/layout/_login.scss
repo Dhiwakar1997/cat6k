@@ -1,0 +1,42 @@
+.login {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 2rem;
+  display: flex;
+  background-color: #f1f1f1;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4rem;
+    width: 40%;
+    height: 50%;
+    justify-content: space-evenly;
+    background-color: $color-primary;
+    &--text {
+      width: 75%;
+      height: 4rem;
+
+      text-align: center;
+      border-radius: 4rem;
+      border: none;
+    }
+    &--submit {
+      width: 9rem;
+      height: 4rem;
+      border-radius: 1rem;
+      text-transform: uppercase;
+      border: none;
+      &:hover {
+        font-weight: 600;
+        color: white;
+        background-color: black;
+      }
+    }
+  }
+}

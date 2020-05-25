@@ -1,0 +1,96 @@
+{% extends 'Status_Update/base.html' %} {% block bodyblock %} {% load static %}
+<form action="" method="POST">
+  <div class="page">
+    <div class="left">
+      <div class="left__nav">
+        <ul>
+          <a
+            style="text-decoration: none; color: white;"
+            class="left__nav--btn typo__navbar"
+            href="{% url 'status:user' %}"
+            >HOME</a
+          >
+          {% if user.is_authenticated %}
+          <a
+            style="text-decoration: none; color: white;"
+            href="{% url 'logout'%}"
+            class="left__nav--btn typo__navbar"
+            >LOGOUT</a
+          >
+          {% else %}
+
+          <a
+            style="text-decoration: none; color: white;"
+            href="{% url 'login'%}"
+            class="left__nav--btn typo__navbar"
+            >LOGIN</a
+          >
+
+          {%endif%}
+          <li class="left__nav--btn typo__navbar">SHCEDULE</li>
+          <li class="left__nav--btn typo__navbar">CALC</li>
+        </ul>
+      </div>
+      <div class="left__chart">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <select name="name" id="name">
+            {% for id,name in engineer %}
+            <option value="{{id}}">{{name}}</option>
+            {% endfor %}
+          </select>
+          <div>{{task.task}}</div>
+
+          <input type="submit" />
+        </form>
+      </div>
+      <div class="form__left u-invisible u-raise">
+        {% if entry %} {% csrf_token %}
+        <table>
+          <tbody>
+            <tr>
+              <div class="tabel__heading">
+                <th>TASK</th>
+                <th>COMMENT</th>
+                <th>STATUS</th>
+              </div>
+            </tr>
+
+            {% for i in entry %}
+            <tr>
+              <div class="tabel__entry">
+                <td>do that</td>
+                <td>{{i.comments}}</td>
+                <td>{{i.status}}</td>
+              </div>
+            </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+        {% endif %}
+      </div>
+    </div>
+    <div class="right">
+      <div class="right__txt">
+        <div class="right__txt--name typo__name">{{user.username}}</div>
+        <div class="right__txt--title typo__title u-raise">
+          weekly status update
+        </div>
+      </div>
+      <div class="form__right">
+        <p>.</p>
+      </div>
+      <div class="right__submit">
+        <!--<h1>SUBMIT</h1>
+        <input
+          style="text-transform: uppercase; border: none;"
+          class="right__submit--btn"
+          type="submit"
+        />-->
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock bodyblock %}

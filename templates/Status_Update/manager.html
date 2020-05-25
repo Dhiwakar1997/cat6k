@@ -1,0 +1,97 @@
+{% extends 'Status_Update/base.html' %} {% block bodyblock %} {% load static %}
+<form action="" method="POST">
+  <div class="page">
+    <div class="left">
+      <div class="left__nav">
+        <ul>
+          <a
+            style="text-decoration: none; color: white;"
+            class="left__nav--btn typo__navbar"
+            href="{% url 'status:manager' %}"
+            >HOME</a
+          >
+          {% if user.is_authenticated %}
+          <a
+            style="text-decoration: none; color: white;"
+            href="{% url 'logout'%}"
+            class="left__nav--btn typo__navbar"
+            >LOGOUT</a
+          >
+          {% else %}
+
+          <a
+            style="text-decoration: none; color: white;"
+            href="{% url 'login'%}"
+            class="left__nav--btn typo__navbar"
+            >LOGIN</a
+          >
+
+          {%endif%}
+          <a
+            style="text-decoration: none; color: white;"
+            href="{% url 'status:each'%}"
+            class="left__nav--btn typo__navbar"
+            >ASSIGN</a
+          >
+          <li class="left__nav--btn typo__navbar">CALC</li>
+        </ul>
+      </div>
+      <div class="left__table">
+        {% if details %} {% csrf_token %}
+        <table>
+          <tbody>
+            <tr>
+              <div class="tabel__heading">
+                <th>ENGINEER</th>
+                <th>TASK</th>
+                <th>COMMENT</th>
+                <th>STATUS</th>
+              </div>
+            </tr>
+
+            {% for iteration in details %}
+            <tr>
+              <div class="tabel__entry">
+                <td>{{iteration.engineer}}</td>
+                <td>{{iteration.task}}</td>
+                <td>{{iteration.comments}}</td>
+                <td>{{iteration.status}}</td>
+              </div>
+            </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="right__txt">
+        <div class="right__txt--name typo__name">{{user.username}}</div>
+        <div class="right__txt--title typo__title u-raise">
+          weekly task
+        </div>
+      </div>
+      <div class="dropdown">
+        {% csrf_token %}
+        <div>{{task.task}}</div>
+        <select class="dropdown__submit" name="name" id="name">
+          {% for id,name in engineer %}
+          <option class="dropdown__option" value="{{id}}">{{name}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="right__submit">
+        <input
+          style="text-transform: uppercase; border: none;"
+          class="right__submit--btn"
+          value="ASSIGN"
+          type="submit"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock bodyblock %}

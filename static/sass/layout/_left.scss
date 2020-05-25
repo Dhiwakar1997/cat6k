@@ -1,0 +1,53 @@
+.page {
+  display: flex;
+  height: 100vh;
+}
+.left {
+  animation: Left 1s ease-out;
+  //background-color: blue;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  &__nav {
+    display: flex;
+    width: 80%;
+    height: 6rem;
+    background-color: black;
+    color: white;
+    margin: 2rem;
+    border-radius: 4rem;
+    ul {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+  &__chart {
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  &__table--user {
+    height: 30vh;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__table {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

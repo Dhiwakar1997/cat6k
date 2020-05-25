@@ -1,0 +1,52 @@
+.right {
+  animation: Right 1s ease-out;
+  background-color: $color-primary;
+  width: 30vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &__txt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 30vh;
+    &--name {
+      width: 30%;
+      color: white;
+      border-bottom: 1px white solid;
+    }
+    &--title {
+      color: white;
+    }
+  }
+  &__form {
+    height: 50vh;
+  }
+  &__submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+
+    &--btn {
+      animation: resize 3s ease-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      border-radius: 10rem;
+      color: white;
+      width: 12rem;
+      height: 5rem;
+      transition: 3 ease-out;
+      &:hover {
+        background-color: rgb(241, 75, 9);
+
+        //   transform: translateY(-0.5rem);
+        //box-shadow: rgb(240, 150, 48);
+        // color: black;
+      }
+    }
+  }
+}

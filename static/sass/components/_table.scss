@@ -1,0 +1,59 @@
+table {
+  width: 80%;
+  height: 100%;
+  border: soild 1px black;
+
+  tbody {
+    font-size: 1.5rem;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    tr {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px $color-primary-dark solid;
+      td {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 100%;
+        input[type="text"] {
+          font-size: 1.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          border: white solid;
+        }
+      }
+      th {
+        background-color: $color-primary-t;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 100%;
+        input[type="text"] {
+          font-size: 1.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          border: white solid;
+        }
+      }
+    }
+  }
+}

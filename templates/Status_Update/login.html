@@ -1,0 +1,26 @@
+{% extends 'Status_Update/base.html' %} {% block bodyblock %}
+<div class="jambotron">
+  <form action="{%url 'login' %}" method="post">
+    {% csrf_token %}
+    <div class="login">
+      <div class="login__inner">
+        <input
+          class="login__inner--text"
+          type="text"
+          name="username"
+          placeholder="Username"
+        />
+
+        <input
+          class="login__inner--text"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <input class="login__inner--submit" value="LOGIN" type="submit" />
+      </div>
+    </div>
+  </form>
+  <a href="{%url 'register'%}">SIGN UP</a>
+</div>
+{% endblock bodyblock %}

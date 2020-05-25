@@ -1,0 +1,97 @@
+.form {
+  &__right {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5rem;
+    grid-auto-rows: 10rem;
+    &--mini {
+      height: 4rem;
+      display: flex;
+      justify-self: start;
+      text-align: center;
+      p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        text-align: center;
+        color: white;
+        text-transform: uppercase;
+        border-radius: 5rem 0 0 5rem;
+        width: 4rem;
+        height: 4rem;
+      }
+      input {
+        border-radius: 0 5rem 5rem 0;
+        width: 5rem;
+        height: 4rem;
+        border-color: black;
+      }
+    }
+  }
+  &__left {
+    width: 100%;
+    display: flex;
+    justify-self: start;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      text-align: center;
+      color: white;
+      text-transform: uppercase;
+      border-radius: 5rem 0 0 5rem;
+      width: 10%;
+      height: 5rem;
+    }
+    input {
+      border-radius: 0 5rem 5rem 0;
+      width: 40%;
+      height: 5rem;
+      border-color: black;
+    }
+  }
+}
+
+/* &__form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    &--task {
+      margin-top: 3rem;
+
+      h1 {
+        background-color: $light-blue;
+        text-align: center;
+        text-transform: uppercase;
+        border-radius: 5rem 0 0 5rem;
+        width: 20vw;
+        height: 8rem;
+      }
+      input {
+        border-radius: 0 5rem 5rem 0;
+        width: 40vw;
+        border-color: $light-blue;
+      }
+      display: flex;
+      right: 20rem;
+    }
+    &--title {
+      width: 20vw;
+      height: 3rem;
+      border-radius: 6px;
+    }
+    &--entry {
+      margin: 4rem 0 2rem 6rem;
+
+      width: 40vw;
+      height: 15rem;
+      border-radius: 6px;
+    }
+  }*/

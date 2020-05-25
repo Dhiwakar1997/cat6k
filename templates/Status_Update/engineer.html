@@ -1,0 +1,109 @@
+{% extends 'Status_Update/base.html' %} {% block bodyblock %} {% load static %}
+<form action="" method="POST">
+  <div class="page">
+    <div class="left">
+      <div class="left__nav">
+        <ul>
+          <a
+            style="text-decoration: none; color: white;"
+            class="left__nav--btn typo__navbar"
+            href="{% url 'status:user' %}"
+            >HOME</a
+          >
+          {% if user.is_authenticated %}
+          <a
+            style="text-decoration: none; color: white;"
+            href="{% url 'logout'%}"
+            class="left__nav--btn typo__navbar"
+            >LOGOUT</a
+          >
+          {% else %}
+
+          <a
+            style="text-decoration: none; color: white;"
+            href="{% url 'login'%}"
+            class="left__nav--btn typo__navbar"
+            >LOGIN</a
+          >
+
+          {%endif%}
+          <li class="left__nav--btn typo__navbar">SHCEDULE</li>
+          <li class="left__nav--btn typo__navbar">CALC</li>
+        </ul>
+      </div>
+      <div class="left__chart">
+        <img src="{% static 'SASS/output.png'%}" alt="#" />
+      </div>
+      <div class="left__table--user u-invisible u-raise">
+        {% if entry %} {% csrf_token %}
+        <table>
+          <tbody>
+            <tr>
+              <div class="tabel__heading">
+                <th>TASK</th>
+                <th>COMMENT</th>
+                <th>STATUS</th>
+              </div>
+            </tr>
+
+            {% for task,form in entry %}
+            <tr>
+              <div class="tabel__entry">
+                <td>{{task}}</td>
+                <td>{{form.comments}}</td>
+                <td>{{form.status}}</td>
+              </div>
+            </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+        {% endif %}
+      </div>
+    </div>
+    <div class="right">
+      <div class="right__txt">
+        <div class="right__txt--name typo__name">{{user.username}}</div>
+        <div class="right__txt--title typo__title u-raise">
+          weekly status update
+        </div>
+      </div>
+      <div class="form__right">
+        <!--
+        <div class="form__right--mini typo__navbar u-raise">
+          <p>dm</p>
+          <input type="text" />
+        </div>
+        <div class="form__right--mini typo__navbar u-raise">
+          <p>LI</p>
+          <input type="text" />
+        </div>
+        <div class="form__right--mini typo__navbar u-raise">
+          <p>FI</p>
+          <input type="text" />
+        </div>
+        <div class="form__right--mini typo__navbar u-raise">
+          <p>kp</p>
+          <input type="text" />
+        </div>
+        <div class="form__right--mini typo__navbar u-raise">
+          <p>op</p>
+          <input type="text" />
+        </div>
+        <div class="form__right--mini typo__navbar u-raise">
+          <p>pi</p>
+          <input type="text" />
+        </div>-->
+      </div>
+      <div class="right__submit">
+        <input
+          style="text-transform: uppercase; border: none;"
+          class="right__submit--btn"
+          type="submit"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock bodyblock %}
