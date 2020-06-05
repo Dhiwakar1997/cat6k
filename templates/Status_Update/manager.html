@@ -1,5 +1,6 @@
 {% extends 'Status_Update/base.html' %} {% block bodyblock %} {% load static %}
-<form action="" method="POST">
+
+
   <div class="page">
     <div class="left">
       <div class="left__nav">
@@ -73,6 +74,12 @@
           weekly task
         </div>
       </div>
+      <form action="{% url 'status:manager_search' %}" method="POST">
+        {% csrf_token %}
+        {{calender}}
+        <input type="submit" value="Search" />
+      </form>
+      <form action="" method="POST">
       <div class="dropdown">
         {% csrf_token %}
         <div>{{task.task}}</div>

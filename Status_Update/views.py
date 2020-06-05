@@ -1,4 +1,4 @@
-from .forms import UserForm, EngineerForm, task
+from .forms import UserForm, EngineerForm, task, CalenderForm
 from .models import Manage
 from datetime import datetime
 from django.urls import reverse
@@ -34,6 +34,7 @@ def register(request):
 
 def user_login(request):
     if request.method == "POST":
+
         username = request.POST.get('username')
         password = request.POST.get('password')
 
@@ -92,8 +93,8 @@ def engineer_home(request):
 
 
 def manager_home(request):
-    obj = Manage.objects.filter(year=now.year,
-                                week=now.isocalendar()[1])
+    details = Manage.objects.filter(year=now.year,
+                                    week=now.isocalendar()[1])
     if request.method == 'POST':
       #  print(request.POST.getlist('comments'))
         x = request.POST
@@ -113,9 +114,22 @@ def manager_home(request):
         for iteration in users:
             engineer.append([iteration.id, iteration.username])
         print(engineer)
-        cont = {'task': task(), 'engineer': engineer, "details": obj}
+        cont = {'task': task(), 'engineer': engineer, "details": details,
+                'calender': CalenderForm()}
         return render(request, 'Status_Update/manager.html', context=cont)
   #  return render(request, 'Status_Update/manager.html', context={"details": obj})
+
+
+def manager_search(request):
+    print(request.POST['date'])
+    search_date = datetime.strptime(request.POST['date'], '%d/%m/%Y').date()
+    print(search_date.year)
+    print(search_date.isocalendar()[1])
+    details = Manage.objects.filter(year=search_date.year,
+                                    week=search_date.isocalendar()[1])
+    print(details)
+    cont = {'details': details, 'calender': CalenderForm()}
+    return render(request, 'Status_Update/manager_search.html', context=cont)
 
 
 @login_required

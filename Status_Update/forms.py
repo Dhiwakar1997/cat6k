@@ -1,5 +1,12 @@
 from django.contrib.auth.models import User
+from django.contrib.admin.widgets import AdminDateWidget
+#from django.forms.fields import DateField
 from django import forms
+
+
+class CalenderForm(forms.Form):
+    date = forms.DateField(widget=AdminDateWidget(
+        attrs={'placeholder': 'dd/mm/yyyy'}))
 
 
 class UserForm(forms.ModelForm):
