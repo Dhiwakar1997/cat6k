@@ -15,7 +15,7 @@ matplotlib==3.2.1
 numpy==1.18.4
 pandas==1.0.3
 pilkit==2.0
-Pillow==7.1.1
+Pillow==9.0.1
 psycopg2==2.8.5
 pycodestyle==2.5.0
 pycparser==2.20
