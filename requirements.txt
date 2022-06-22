@@ -12,7 +12,7 @@ django-matplotlib==0.1
 djangorestframework==3.11.0
 kiwisolver==1.2.0
 matplotlib==3.2.1
-numpy==1.18.4
+numpy==1.22.0
 pandas==1.0.3
 pilkit==2.0
 Pillow==7.1.1
